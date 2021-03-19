@@ -35,7 +35,25 @@ function ProductScreen({match}) {
           </ListGroup>
         </Col>
         <Col md={3}>
-        
+          <Card>
+            <ListGroup>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Price:</Col>
+                  <Col><strong>{product.price}</strong></Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Status:</Col>
+                  <Col>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button className="btn-block" disabled={!product.countInStock ? true : false} type="button">{product.countInStock > 0 ? 'ADD TO CART' : 'Out of Stock'}</Button>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
         </Col>
       </Row>
     </div>
