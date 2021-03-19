@@ -1,3 +1,5 @@
 # Ecommerce website with Django and React
 
-- React, Redux, Python, Django
+- Frontend: React, Redux
+- Backend: Python, Django
+- Database: Postgres
