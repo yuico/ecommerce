@@ -127,4 +127,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFIELD_DIRS = [
+    BASE_DIR / 'static'
+]
+
+MEDIA_ROOT = 'static/images'
+
 CORS_ALLOW_ALL_ORIGINS = True
