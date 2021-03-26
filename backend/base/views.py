@@ -19,7 +19,7 @@ def getRoutes(request):
     '/api/proucts/<id>/reviews/',
 
     '/api/proucts/top/',
-    
+
     '/api/proucts/<updata>/<id>/',
   ]
   return Response(routes)
@@ -27,16 +27,13 @@ def getRoutes(request):
 @api_view(['GET'])
 def getProducts(request):
   products = Product.objects.all()
-  serializers = ProductSerializer(products, many=True)
-  return Response(serializers.data)
+  serializer = ProductSerializer(products, many=True)
+  return Response(serializer.data)
 """ def getProducts(request):
   return JsonResponse(products, safe=False) """
 
 @api_view(['GET'])
 def getProduct(request, pk):
-  product = None
-  for i in products:
-    if i['_id'] == pk:
-      product = i
-      break
-  return Response(product)
+  product = Product.objects.get(_id = pk)
+  serializer = ProductSerializer(product, many=False)
+  return Response(serializer.data)
